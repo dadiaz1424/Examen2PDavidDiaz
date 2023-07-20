@@ -58,5 +58,5 @@ public class ValidacionDto {
     }
     
     
-    // Getters, setters y constructores
+
 }
