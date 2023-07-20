@@ -18,11 +18,11 @@ public class EmpresaService {
     }
 
     public Empresa crearEmpresaConEmpleados(EmpresaDto empresaDTO) {
-        Empresa empresa = mapEmpresaDTOToEmpresa(empresaDTO);
+        Empresa empresa = EmpresaDtoToEmpresa(empresaDTO);
         return empresaRepository.save(empresa);
     }
 
-    private Empresa mapEmpresaDTOToEmpresa(EmpresaDto empresaDTO) {
+    private Empresa EmpresaDtoToEmpresa(EmpresaDto empresaDTO) {
         Empresa empresa = new Empresa();
         empresa.setRUC(empresaDTO.getRUC());
         empresa.setRazonSocial(empresaDTO.getRazonSocial());

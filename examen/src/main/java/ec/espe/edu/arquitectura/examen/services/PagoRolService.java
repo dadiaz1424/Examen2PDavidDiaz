@@ -24,16 +24,16 @@ public class PagoRolService {
     }
 
     public PagoRol crearPagoRol(PagoRolDto pagoRolDTO) {
-        PagoRol pagoRol = mapPagoRolDTOToPagoRol(pagoRolDTO);
+        PagoRol pagoRol = PagoRolDtoToPagoRol(pagoRolDTO);
         return pagoRolRepository.save(pagoRol);
     }
 
     public List<PagoRolDto> obtenerPagosPorMesYEmpresa(String rucEmpresa, String mes) {
         List<PagoRol> pagos = pagoRolRepository.findByRucEmpresaAndMes(rucEmpresa, mes);
-        return pagos.stream().map(this::mapPagoRolToPagoRolDTO).collect(Collectors.toList());
+        return pagos.stream().map(this::PagoRolToPagoRolDto).collect(Collectors.toList());
     }
 
-    private PagoRol mapPagoRolDTOToPagoRol(PagoRolDto pagoRolDTO) {
+    private PagoRol PagoRolDtoToPagoRol(PagoRolDto pagoRolDTO) {
         PagoRol pagoRol = new PagoRol();
         pagoRol.setMes(pagoRolDTO.getMes());
         pagoRol.setFechaProceso(pagoRolDTO.getFechaProceso());
@@ -45,7 +45,7 @@ public class PagoRolService {
         return pagoRol;
     }
 
-    private PagoRolDto mapPagoRolToPagoRolDTO(PagoRol pagoRol) {
+    private PagoRolDto PagoRolToPagoRolDto(PagoRol pagoRol) {
         PagoRolDto pagoRolDTO = new PagoRolDto();
         pagoRolDTO.setMes(pagoRol.getMes());
         pagoRolDTO.setFechaProceso(pagoRol.getFechaProceso());
