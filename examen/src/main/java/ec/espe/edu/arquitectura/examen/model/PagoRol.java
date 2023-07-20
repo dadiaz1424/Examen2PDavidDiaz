@@ -7,6 +7,8 @@ import java.util.List;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import ec.espe.edu.arquitectura.examen.Dto.EmpleadoPagoDto;
+
 @Document(collection = "PagoRol")
 public class PagoRol {
     @Id
@@ -16,7 +18,7 @@ public class PagoRol {
     private String cuentaPrincipal;
     private BigDecimal valorTotal;
     private BigDecimal valorReal;
-    private List<EmpleadoPago> empleadosPago;
+    private List<EmpleadoPagoDto> empleadosPago;
     public PagoRol() {
     }
     public String getMes() {
@@ -55,14 +57,14 @@ public class PagoRol {
     public void setValorReal(BigDecimal valorReal) {
         this.valorReal = valorReal;
     }
-    public List<EmpleadoPago> getEmpleadosPago() {
+    public List<EmpleadoPagoDto> getEmpleadosPago() {
         return empleadosPago;
     }
-    public void setEmpleadosPago(List<EmpleadoPago> empleadosPago) {
-        this.empleadosPago = empleadosPago;
+    public void setEmpleadosPago(List<EmpleadoPagoDto> list) {
+        this.empleadosPago = list;
     }
     public PagoRol(String mes, Date fechaProceso, String rucEmpresa, String cuentaPrincipal, BigDecimal valorTotal,
-            BigDecimal valorReal, List<EmpleadoPago> empleadosPago) {
+            BigDecimal valorReal, List<EmpleadoPagoDto> empleadosPago) {
         this.mes = mes;
         this.fechaProceso = fechaProceso;
         this.rucEmpresa = rucEmpresa;
